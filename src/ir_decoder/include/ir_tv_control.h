@@ -73,7 +73,7 @@ typedef struct ir_data
     UINT8 index;
 } t_ir_data;
 
-#if !defined BOARD_51
+#if !defined BOARD_51 && !defined BOARD_STM8
 #pragma pack(1)
 #endif
 typedef struct ir_cycles
@@ -83,7 +83,7 @@ typedef struct ir_cycles
     UINT16 space;
 } t_ir_cycles;
 
-#if !defined BOARD_51
+#if !defined BOARD_51 && !defined BOARD_STM8
 #pragma pack()
 #endif
 

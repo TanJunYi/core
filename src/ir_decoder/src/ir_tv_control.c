@@ -13,6 +13,8 @@ Revision log:
 
 #include "../include/ir_defs.h"
 #include "../include/ir_decode.h"
+#include "../include/ir_tv_control.h"
+
 
 struct buffer
 {

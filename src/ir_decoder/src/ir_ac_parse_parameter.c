@@ -96,7 +96,6 @@ INT8 parse_common_ac_parameter(t_tag_head *tag, t_tag_comp *comp_data, UINT8 wit
     string_to_hex_common(tag->p_data, hex_data, hex_len);
 
     // parse hex data to AC data structure
-    //*comp_len = hex_len;
 
     if (AC_PARAMETER_TYPE_1 == type)
     {
@@ -138,14 +137,11 @@ INT8 parse_common_ac_parameter(t_tag_head *tag, t_tag_comp *comp_data, UINT8 wit
 
 INT8 parse_default_code(struct tag_head *tag, t_ac_hex *default_code)
 {
-    UINT16 byteLen = 0;
-
     if (NULL == tag)
     {
         return IR_DECODE_FAILED;
     }
 
-    byteLen = tag->len >> 1;
     string_to_hex(tag->p_data, default_code);
 
     return IR_DECODE_SUCCEEDED;

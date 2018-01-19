@@ -19,6 +19,9 @@ extern "C"
 
 #include "ir_decode.h"
 
+#define MIN_TAG_LENGTH_TYPE_1   4
+#define MIN_TAG_LENGTH_TYPE_2   6
+
 INT8 apply_power(t_remote_ac_status ac_status, UINT8 function_code);
 
 INT8 apply_mode(t_remote_ac_status ac_status, UINT8 function_code);

@@ -53,6 +53,37 @@ void string_to_hex(UINT8 *p, t_ac_hex *pac_hex)
     }
 }
 
+char hex_half_byte_to_single_char(UINT8 length, UINT8 half_byte)
+{
+    if (1 != length || half_byte >= 16)
+    {
+        return '0';
+    }
+    if (half_byte >= 10 && half_byte < 16)
+    {
+        return (char) (half_byte - 10 + 0x41);
+    }
+    else
+    {
+        return (char) (half_byte + 0x30);
+    }
+}
+
+void hex_byte_to_double_char(char *dest, UINT8 length, UINT8 src)
+{
+    UINT8 hi_num = 0;
+    UINT8 lo_num = 0;
+    if (NULL == dest || 2 != length)
+    {
+        return;
+    }
+    hi_num = (UINT8) ((src >> 4) & 0x0F);
+    lo_num = (UINT8) (src & 0x0F);
+
+    dest[0] = hex_half_byte_to_single_char(1, hi_num);
+    dest[1] = hex_half_byte_to_single_char(1, lo_num);
+}
+
 BOOL is_in(const UINT8 *array, UINT8 value, UINT8 len)
 {
     UINT16 i = 0;
