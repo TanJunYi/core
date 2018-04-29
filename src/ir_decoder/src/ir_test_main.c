@@ -68,12 +68,14 @@ INT8 decode_as_ac(char *file_name)
                 ac_status.ac_temp = ((ac_status.ac_temp == AC_TEMP_30) ? AC_TEMP_30 : (ac_status.ac_temp + 1));
                 function_code = AC_FUNCTION_TEMPERATURE_UP;
                 break;
+
             case 's':
             case 'S':
                 // temperature minus
                 ac_status.ac_temp = ((ac_status.ac_temp == AC_TEMP_16) ? AC_TEMP_16 : (ac_status.ac_temp - 1));
                 function_code = AC_FUNCTION_TEMPERATURE_DOWN;
                 break;
+
             case 'a':
             case 'A':
                 // wind speed loop
@@ -81,29 +83,34 @@ INT8 decode_as_ac(char *file_name)
                 ac_status.ac_wind_speed = ac_status.ac_wind_speed % AC_WS_MAX;
                 function_code = AC_FUNCTION_WIND_SPEED;
                 break;
+
             case 'd':
             case 'D':
                 // wind swing loop
                 ac_status.ac_wind_dir = ((ac_status.ac_wind_dir == 0) ? AC_SWING_OFF : AC_SWING_ON);
                 function_code = AC_FUNCTION_WIND_SWING;
                 break;
+
             case 'q':
             case 'Q':
                 ++ac_status.ac_mode;
                 ac_status.ac_mode = ac_status.ac_mode % AC_MODE_MAX;
                 function_code = AC_FUNCTION_MODE;
                 break;
+
             case '1':
                 // turn on
                 ac_status.ac_power = AC_POWER_ON;
                 function_code = AC_FUNCTION_POWER;
                 break;
+
             case '2':
                 // turn off
                 ac_status.ac_power = AC_POWER_OFF;
                 // FUNCTION MAX refers to power off
                 // function_code = AC_FUNCTION_POWER;
                 break;
+
             case '3':
                 if (IR_DECODE_SUCCEEDED == get_supported_mode(&supported_mode))
                 {
