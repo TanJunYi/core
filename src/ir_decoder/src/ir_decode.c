@@ -267,7 +267,7 @@ static UINT16 ir_ac_lib_control(t_remote_ac_status ac_status, UINT16 *user_data,
     UINT16 time_length = 0;
 
 #if defined BOARD_PC
-    UINT8 i = 0;
+    UINT16 i = 0;
 #endif
 
     if (0 == context->default_code.len)
