@@ -42,4 +42,6 @@
 
 #### 联系作者: 
 
+电子邮件：strawmanbobi@irext.net
+
 <img src="http://irext.net/images/bobi_qr.png" align="left" height="160" width="160">
