@@ -3,8 +3,6 @@
 # IRext (revision 0.1.4)
 #### 开源家用电器红外的编解码和免费码库方案
 
-##### :hamster: 近期将开启 irext 第二期开发，实现码库持续扩充，请关注，谢谢。
-
   IRext 提供数以万计的红外设备遥控编码, 并以独特的编、解码算法为任何嵌入式设备、移动设备以及服务器提供红外设备遥控功能。
 
 
@@ -41,6 +39,10 @@
   - Java Web索引API: https://github.com/irext/irext-web-api
   - WebCOM (通过COMM在你的Web页面和嵌入式设备之间通信 :electric_plug:) :
     https://github.com/irext/irext-web-com
+
+------
+
+##### :hamster: 近期将开启 irext 第二期开发，实现码库持续扩充，请关注，谢谢。
 
 ------
 
