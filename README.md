@@ -46,6 +46,6 @@
 
 #### 联系作者: 
 
-电子邮件：strawmanbobi@irext.net
+电子邮件：strawmanbobi@163.com
 
 <img src="http://irext.net/images/bobi_qr.png" align="left" height="160" width="160">
