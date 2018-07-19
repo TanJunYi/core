@@ -37,6 +37,8 @@
   - 红外码管理控制台私有云版本: https://github.com/irext/irext-console
   - 各种平台的解码示例: https://github.com/irext/irext-examples
   - Java Web索引API: https://github.com/irext/irext-web-api
+  - WebCOM (通过COMM在你的Web页面和嵌入式设备之间通信 :electric_plug:) :
+    https://github.com/irext/irext-web-com
 
 ------
 
