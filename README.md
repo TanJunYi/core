@@ -42,12 +42,10 @@
 
 ------
 
-##### :hamster: 近期将开启 irext 第二期开发，实现码库持续扩充，请关注，谢谢。
-
-------
-
 #### 联系作者: 
 
 电子邮件：strawmanbobi@163.com
 
 <img src="http://irext.net/images/bobi_qr.png" align="left" height="160" width="160">
+
+##### :hamster: 近期将开启 irext 第二期开发，实现码库持续扩充，请关注，谢谢。
