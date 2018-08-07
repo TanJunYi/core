@@ -33,7 +33,13 @@ const UINT16 tag_index[TAG_COUNT_FOR_PROTOCOL] =
 INT8 binary_parse_offset()
 {
     int i = 0;
-    UINT16 *phead = (UINT16 *) &p_ir_buffer->data[1];
+#ifdef ESP8266
+	UINT8 *phead = (UINT8 *)&p_ir_buffer->data[1];
+#else
+	UINT16 *phead = (UINT16 *)&p_ir_buffer->data[1];
+#endif //ESP8266
+
+   
 
     tag_count = p_ir_buffer->data[0];
     if (TAG_COUNT_FOR_PROTOCOL != tag_count)
@@ -59,6 +65,10 @@ INT8 binary_parse_offset()
 #if defined BOARD_STM8 && defined COMPILER_IAR
         UINT16 offset = *(phead + i);
         tags[i].offset = (offset >> 8) | (offset << 8);
+#elif defined ESP8266
+		UINT16 tmp_a = *(phead + i * 2);
+		UINT16 tmp_b = *(phead + i * 2 + 1);
+		tags[i].offset = tmp_b << 8 | tmp_a;
 #else
         tags[i].offset = *(phead + i);
 #endif
