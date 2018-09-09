@@ -64,9 +64,9 @@ INT8 binary_parse_offset()
         UINT16 offset = *(phead + i);
         tags[i].offset = (offset >> 8) | (offset << 8);
 #elif defined BOARD_ESP8266
-		UINT16 tmp_a = *(phead + i * 2);
-		UINT16 tmp_b = *(phead + i * 2 + 1);
-		tags[i].offset = tmp_b << 8 | tmp_a;
+        UINT16 tmp_a = *(phead + i * 2);
+        UINT16 tmp_b = *(phead + i * 2 + 1);
+        tags[i].offset = tmp_b << 8 | tmp_a;
 #else
         tags[i].offset = *(phead + i);
 #endif
