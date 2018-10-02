@@ -1,6 +1,6 @@
 #### For users out of China, please refer to the official website https://irext.net for documentation.
 
-# IRext (revision 0.1.4)
+# IRext (revision 0.1.5)
 #### 开源家用电器红外的编解码和免费码库方案
 
   IRext 提供数以万计的红外设备遥控编码, 并以独特的编、解码算法为任何嵌入式设备、移动设备以及服务器提供红外设备遥控功能。
@@ -21,6 +21,7 @@
   - 支持不同平台 (51单片机、Linux、Windows、Java Web、Android、树莓派、Arduino等）。
   - 提供不同平台解码程序样例。
   - 支持在线解码以及在线板载解码。
+  - 提供离线编码索引和码库，并按月更新。
 
 ------
 
