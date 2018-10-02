@@ -141,5 +141,3 @@ UINT16 create_ir_frame()
 
     return context->code_cnt;
 }
-
-
