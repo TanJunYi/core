@@ -159,8 +159,6 @@
     <ClInclude Include="include\ir_defs.h" />
     <ClInclude Include="include\ir_tv_control.h" />
     <ClInclude Include="include\ir_utils.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ir_ac_apply.c" />
@@ -173,12 +171,6 @@
     <ClCompile Include="src\ir_decode.c" />
     <ClCompile Include="src\ir_tv_control.c" />
     <ClCompile Include="src\ir_utils.c" />
-    <ClCompile Include="stdafx.c">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ir_decode.def" />

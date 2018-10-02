@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="include\ir_ac_apply.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -84,9 +78,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\ir_utils.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
