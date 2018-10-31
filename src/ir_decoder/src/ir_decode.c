@@ -71,7 +71,7 @@ void noprint(const char *fmt, ...)
 }
 
 // pubic function definitions
-
+#if (!defined BOARD_51 && !defined BOARD_CC26XX)
 INT8 ir_file_open(const UINT8 category, const UINT8 sub_category, const char* file_name)
 {
     INT8 ret = IR_DECODE_SUCCEEDED;
@@ -115,7 +115,12 @@ INT8 ir_file_open(const UINT8 category, const UINT8 sub_category, const char* fi
         }
     }
 }
-
+#else
+INT8 ir_file_open(const UINT8 category, const UINT8 sub_category, const char* file_name)
+{
+    return IR_DECODE_SUCCESS;
+}
+#endif
 
 INT8 ir_binary_open(const UINT8 category, const UINT8 sub_category, UINT8* binary, UINT16 binary_length)
 {
