@@ -53,7 +53,7 @@ static void convert_to_ir_time(UINT8 value, UINT16 *ir_time);
 static void replace_with(t_ir_cycles *pcycles_num, UINT16 *ir_time);
 
 
-INT8 tv_lib_open(UINT8 *binary, UINT16 binary_length)
+INT8 tv_binary_open(UINT8 *binary, UINT16 binary_length)
 {
     // load binary to buffer
     pbuffer->data = binary;
@@ -62,7 +62,7 @@ INT8 tv_lib_open(UINT8 *binary, UINT16 binary_length)
     return IR_DECODE_SUCCEEDED;
 }
 
-BOOL tv_lib_parse(UINT8 encode_type)
+BOOL tv_binary_parse(UINT8 encode_type)
 {
     if (FALSE == get_ir_protocol(encode_type))
     {
@@ -72,7 +72,7 @@ BOOL tv_lib_parse(UINT8 encode_type)
     return get_ir_keymap();
 }
 
-UINT16 tv_lib_control(UINT8 key, UINT16 *user_data)
+UINT16 tv_binary_decode(UINT8 key, UINT16 *user_data)
 {
     UINT16 i = 0;
 

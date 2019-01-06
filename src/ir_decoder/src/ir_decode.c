@@ -54,15 +54,15 @@ lp_apply_ac_parameter apply_table[AC_APPLY_MAX] =
 
 // static functions declarations
 static INT8 ir_ac_file_open(const char *file_name);
-static INT8 ir_ac_lib_open(UINT8 *binary, UINT16 binary_length);
-static UINT16 ir_ac_lib_control(t_remote_ac_status ac_status, UINT16 *user_data, UINT8 function_code,
-                                BOOL change_wind_direction);
-static INT8 ir_ac_lib_close();
+static INT8 ir_ac_binary_open(UINT8 *binary, UINT16 binary_length);
+static UINT16 ir_ac_control(t_remote_ac_status ac_status, UINT16 *user_data, UINT8 function_code,
+                            BOOL change_wind_direction);
+static INT8 ir_ac_binary_close();
 static INT8 ir_tv_file_open(const char *file_name);
-static INT8 ir_tv_lib_open(UINT8 *binary, UINT16 binary_length);
-static INT8 ir_tv_lib_parse(UINT8 ir_hex_encode);
-static UINT16 ir_tv_lib_control(UINT8 key, UINT16 *l_user_data);
-static INT8 ir_tv_lib_close();
+static INT8 ir_tv_binary_open(UINT8 *binary, UINT16 binary_length);
+static INT8 ir_tv_binary_parse(UINT8 ir_hex_encode);
+static UINT16 ir_tv_control(UINT8 key, UINT16 *l_user_data);
+static INT8 ir_tv_binary_close();
 
 
 void noprint(const char *fmt, ...)
@@ -107,7 +107,7 @@ INT8 ir_file_open(const UINT8 category, const UINT8 sub_category, const char* fi
         ret = ir_tv_file_open(file_name);
         if (IR_DECODE_SUCCEEDED == ret)
         {
-            return ir_tv_lib_parse(ir_hexadecimal);
+            return ir_tv_binary_parse(ir_hexadecimal);
         }
         else
         {
@@ -129,7 +129,7 @@ INT8 ir_binary_open(const UINT8 category, const UINT8 sub_category, UINT8* binar
     if (category == IR_CATEGORY_AC)
     {
         ir_binary_type = IR_TYPE_STATUS;
-        ret = ir_ac_lib_open(binary, binary_length);
+        ret = ir_ac_binary_open(binary, binary_length);
         if (IR_DECODE_SUCCEEDED == ret)
         {
             return ir_ac_lib_parse();
@@ -155,10 +155,10 @@ INT8 ir_binary_open(const UINT8 category, const UINT8 sub_category, UINT8* binar
             return IR_DECODE_FAILED;
         }
 
-        ret = ir_tv_lib_open(binary, binary_length);
+        ret = ir_tv_binary_open(binary, binary_length);
         if (IR_DECODE_SUCCEEDED == ret)
         {
-            return ir_tv_lib_parse(ir_hexadecimal);
+            return ir_tv_binary_parse(ir_hexadecimal);
         }
         else
         {
@@ -172,7 +172,7 @@ UINT16 ir_decode(UINT8 key_code, UINT16* user_data, t_remote_ac_status* ac_statu
 {
     if (IR_TYPE_COMMANDS == ir_binary_type)
     {
-        return ir_tv_lib_control(key_code, user_data);
+        return ir_tv_control(key_code, user_data);
     }
     else
     {
@@ -180,7 +180,7 @@ UINT16 ir_decode(UINT8 key_code, UINT16* user_data, t_remote_ac_status* ac_statu
         {
             return 0;
         }
-        return ir_ac_lib_control(*ac_status, user_data, key_code, change_wind_direction);
+        return ir_ac_control(*ac_status, user_data, key_code, change_wind_direction);
     }
 }
 
@@ -189,11 +189,11 @@ INT8 ir_close()
 {
     if (IR_TYPE_COMMANDS == ir_binary_type)
     {
-        return ir_tv_lib_close();
+        return ir_tv_binary_close();
     }
     else
     {
-        return ir_ac_lib_close();
+        return ir_ac_binary_close();
     }
 }
 
@@ -246,7 +246,7 @@ static INT8 ir_ac_file_open(const char *file_name)
 
     fclose(stream);
 
-    if (IR_DECODE_FAILED == ir_ac_lib_open(binary_content, (UINT16) binary_length))
+    if (IR_DECODE_FAILED == ir_ac_binary_open(binary_content, (UINT16) binary_length))
     {
         ir_free(binary_content);
         binary_length = 0;
@@ -256,7 +256,7 @@ static INT8 ir_ac_file_open(const char *file_name)
     return IR_DECODE_SUCCEEDED;
 }
 
-static INT8 ir_ac_lib_open(UINT8 *binary, UINT16 binary_length)
+static INT8 ir_ac_binary_open(UINT8 *binary, UINT16 binary_length)
 {
     // it is recommended that the parameter binary pointing to
     // a global memory block in embedded platform environment
@@ -266,8 +266,8 @@ static INT8 ir_ac_lib_open(UINT8 *binary, UINT16 binary_length)
     return IR_DECODE_SUCCEEDED;
 }
 
-static UINT16 ir_ac_lib_control(t_remote_ac_status ac_status, UINT16 *user_data, UINT8 function_code,
-                         BOOL change_wind_direction)
+static UINT16 ir_ac_control(t_remote_ac_status ac_status, UINT16 *user_data, UINT8 function_code,
+                            BOOL change_wind_direction)
 {
     UINT16 time_length = 0;
 
@@ -382,7 +382,7 @@ static UINT16 ir_ac_lib_control(t_remote_ac_status ac_status, UINT16 *user_data,
     return time_length;
 }
 
-static INT8 ir_ac_lib_close()
+static INT8 ir_ac_binary_close()
 {
 #if defined USE_DYNAMIC_TAG
     // free context
@@ -584,7 +584,7 @@ static INT8 ir_tv_file_open(const char *file_name)
 
     fclose(stream);
 
-    if (IR_DECODE_FAILED == ir_tv_lib_open(binary_content, (UINT16) binary_length))
+    if (IR_DECODE_FAILED == ir_tv_binary_open(binary_content, (UINT16) binary_length))
     {
         ir_free(binary_content);
         binary_length = 0;
@@ -594,14 +594,14 @@ static INT8 ir_tv_file_open(const char *file_name)
     return IR_DECODE_SUCCEEDED;
 }
 
-static INT8 ir_tv_lib_open(UINT8 *binary, UINT16 binary_length)
+static INT8 ir_tv_binary_open(UINT8 *binary, UINT16 binary_length)
 {
-    return tv_lib_open(binary, binary_length);
+    return tv_binary_open(binary, binary_length);
 }
 
-static INT8 ir_tv_lib_parse(UINT8 ir_hex_encode)
+static INT8 ir_tv_binary_parse(UINT8 ir_hex_encode)
 {
-    if (FALSE == tv_lib_parse(ir_hex_encode))
+    if (FALSE == tv_binary_parse(ir_hex_encode))
     {
         ir_printf("parse irda binary failed\n");
         return IR_DECODE_FAILED;
@@ -609,14 +609,14 @@ static INT8 ir_tv_lib_parse(UINT8 ir_hex_encode)
     return IR_DECODE_SUCCEEDED;
 }
 
-static UINT16 ir_tv_lib_control(UINT8 key, UINT16 *l_user_data)
+static UINT16 ir_tv_control(UINT8 key, UINT16 *l_user_data)
 {
 #if defined BOARD_PC
     UINT16 print_index = 0;
 #endif
     UINT16 ir_code_length = 0;
     memset(l_user_data, 0x00, USER_DATA_SIZE);
-    ir_code_length = tv_lib_control(key, l_user_data);
+    ir_code_length = tv_binary_decode(key, l_user_data);
 
 #if defined BOARD_PC
     // have some debug
@@ -630,7 +630,7 @@ static UINT16 ir_tv_lib_control(UINT8 key, UINT16 *l_user_data)
     return ir_code_length;
 }
 
-static INT8 ir_tv_lib_close()
+static INT8 ir_tv_binary_close()
 {
 #if (defined BOARD_PC || defined BOARD_PC_DLL)
     ir_lib_free_inner_buffer();

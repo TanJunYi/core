@@ -199,11 +199,11 @@ typedef struct ir_data_tv
 } t_ir_data_tv;
 
 
-extern INT8 tv_lib_open(UINT8 *binary, UINT16 binary_length);
+extern INT8 tv_binary_open(UINT8 *binary, UINT16 binary_length);
 
-extern BOOL tv_lib_parse(UINT8 encode_type);
+extern BOOL tv_binary_parse(UINT8 encode_type);
 
-extern UINT16 tv_lib_control(UINT8 key, UINT16 *user_data);
+extern UINT16 tv_binary_decode(UINT8 key, UINT16 *user_data);
 
 extern UINT8 tv_lib_close();
 
