@@ -1,4 +1,4 @@
-#### For users out of China, please refer to the official website https://irext.net for documentation.
+#### For non-Chinese users, please refer to the official website https://irext.net for documentation.
 
 # IRext (revision 0.1.5)
 #### 开源家用电器红外的编解码和免费码库方案
