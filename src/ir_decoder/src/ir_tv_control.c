@@ -315,7 +315,7 @@ static void print_ir_time(t_ir_data *data, UINT8 key_index, UINT16 *ir_time)
         }
         else if (ir_decode_flag == IRDA_DECODE_2_BITS)
         {
-            // for quanternary formatted code
+            // for quaternary formatted code
             process_decode_number(key_code, data, 2, ir_time);
         }
         else if (ir_decode_flag == IRDA_DECODE_4_BITS)
@@ -363,49 +363,12 @@ static void convert_to_ir_time(UINT8 value, UINT16 *ir_time)
         case 1:
             replace_with(prot_cycles_data[IRDA_ONE], ir_time);
             break;
-        case 2:
-            replace_with(prot_cycles_data[IRDA_TWO], ir_time);
-            break;
-        case 3:
-            replace_with(prot_cycles_data[IRDA_THREE], ir_time);
-            break;
-        case 4:
-            replace_with(prot_cycles_data[IRDA_FOUR], ir_time);
-            break;
-        case 5:
-            replace_with(prot_cycles_data[IRDA_FIVE], ir_time);
-            break;
-        case 6:
-            replace_with(prot_cycles_data[IRDA_SIX], ir_time);
-            break;
-        case 7:
-            replace_with(prot_cycles_data[IRDA_SEVEN], ir_time);
-            break;
-        case 8:
-            replace_with(prot_cycles_data[IRDA_EIGHT], ir_time);
-            break;
-        case 9:
-            replace_with(prot_cycles_data[IRDA_NINE], ir_time);
-            break;
-        case 0x0A:
-            replace_with(prot_cycles_data[IRDA_A], ir_time);
-            break;
-        case 0x0B:
-            replace_with(prot_cycles_data[IRDA_B], ir_time);
-            break;
-        case 0x0C:
-            replace_with(prot_cycles_data[IRDA_C], ir_time);
-            break;
-        case 0x0D:
-            replace_with(prot_cycles_data[IRDA_D], ir_time);
-            break;
-        case 0x0E:
-            replace_with(prot_cycles_data[IRDA_E], ir_time);
-            break;
-        case 0x0F:
-            replace_with(prot_cycles_data[IRDA_F], ir_time);
-            break;
         default:
+            if (value >= 2 && value <= 0x0f)
+            {
+                int ir_body_offset = IRDA_TWO - IRDA_BOOT;
+                replace_with(prot_cycles_data[value - 2 + ir_body_offset], ir_time);
+            }
             break;
     }
 }
