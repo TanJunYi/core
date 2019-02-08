@@ -315,7 +315,7 @@ static void print_ir_time(t_ir_data *data, UINT8 key_index, UINT16 *ir_time)
         }
         else if (ir_decode_flag == IRDA_DECODE_2_BITS)
         {
-            // for quanternary formatted code
+            // for quaternary formatted code
             process_decode_number(key_code, data, 2, ir_time);
         }
         else if (ir_decode_flag == IRDA_DECODE_4_BITS)
