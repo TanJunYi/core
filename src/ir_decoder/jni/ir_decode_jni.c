@@ -19,7 +19,7 @@ Revision log:
 extern size_t binary_length;
 extern UINT8 *binary_content;
 
-JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irOpen
+JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irOpen
           (JNIEnv *env, jobject this_obj, jint category_id, jint sub_cate, jstring file_name)
 {
     const char *n_file_name = (*env)->GetStringUTFChars(env, file_name, 0);
@@ -34,7 +34,7 @@ JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irOpen
     return IR_DECODE_SUCCEEDED;
 }
 
-JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irOpenBinary
+JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irOpenBinary
           (JNIEnv *env, jobject this_obj, jint category_id, jint sub_cate,
            jbyteArray binaries, jint bin_length)
 {
@@ -51,7 +51,7 @@ JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irOpenBinary
     return IR_DECODE_SUCCEEDED;
 }
 
-JNIEXPORT jintArray JNICALL Java_net_irext_decodesdk_IRDecode_irDecode
+JNIEXPORT jintArray JNICALL Java_net_irext_decode_sdk_IRDecode_irDecode
           (JNIEnv *env, jobject this_obj, jint key_code, jobject jni_ac_status, jint change_wind_direction)
 {
     UINT16 user_data[USER_DATA_SIZE];
@@ -105,13 +105,13 @@ JNIEXPORT jintArray JNICALL Java_net_irext_decodesdk_IRDecode_irDecode
     return result;
 }
 
-JNIEXPORT void JNICALL Java_net_irext_decodesdk_IRDecode_irClose
+JNIEXPORT void JNICALL Java_net_irext_decode_sdk_IRDecode_irClose
           (JNIEnv *env, jobject this_obj)
 {
     ir_close();
 }
 
-JNIEXPORT jobject JNICALL Java_net_irext_decodesdk_IRDecode_irACGetTemperatureRange
+JNIEXPORT jobject JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange
           (JNIEnv *env, jobject this_obj, jint ac_mode)
 {
     int tempMin = 0;
@@ -137,7 +137,7 @@ JNIEXPORT jobject JNICALL Java_net_irext_decodesdk_IRDecode_irACGetTemperatureRa
     return temperature_range;
 }
 
-JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedMode
+JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetSupportedMode
           (JNIEnv *env, jobject this_obj)
 {
     int supported_mode = 0;
@@ -145,7 +145,7 @@ JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedMode
     return supported_mode;
 }
 
-JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedWindSpeed
+JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetSupportedWindSpeed
           (JNIEnv *env, jobject this_obj, jint ac_mode)
 {
     int supported_wind_speed = 0;
@@ -153,7 +153,7 @@ JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedWindSpe
     return supported_wind_speed;
 }
 
-JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedSwing
+JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetSupportedSwing
           (JNIEnv *env, jobject this_obj, jint ac_mode)
 {
     int supported_swing = 0;
@@ -161,7 +161,7 @@ JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedSwing
     return supported_swing;
 }
 
-JNIEXPORT jint JNICALL Java_net_irext_decodesdk_IRDecode_irACGetSupportedWindDirection
+JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetSupportedWindDirection
           (JNIEnv *env, jobject this_obj)
 {
     int supported_wind_direction = 0;
