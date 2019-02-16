@@ -114,7 +114,6 @@ JNIEXPORT void JNICALL Java_net_irext_decode_sdk_IRDecode_irClose
 JNIEXPORT jobject JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange
           (JNIEnv *env, jobject this_obj, jint ac_mode)
 {
-    printf("Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange entry\n");
     int tempMin = 0;
     int tempMax = 0;
 
@@ -128,20 +127,12 @@ JNIEXPORT jobject JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureR
     jfieldID min_temp_fid = (*env)->GetFieldID(env, temperature_range_class, "tempMin", "I");
     jfieldID max_temp_fid = (*env)->GetFieldID(env, temperature_range_class, "tempMax", "I");
 
-    printf("Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange - 1\n");
-
     temperature_range = (*env)->NewObject(env, temperature_range_class, temperature_range_mid);
-
-    printf("Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange - 2\n");
 
     get_temperature_range((UINT8)ac_mode, (INT8*)&tempMin, (INT8*)&tempMax);
 
-    printf("Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange - 3\n");
-
     (*env)->SetIntField(env, temperature_range, min_temp_fid, tempMin);
     (*env)->SetIntField(env, temperature_range, max_temp_fid, tempMax);
-
-    printf("Java_net_irext_decode_sdk_IRDecode_irACGetTemperatureRange - 4\n");
 
     return temperature_range;
 }
