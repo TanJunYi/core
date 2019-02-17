@@ -65,8 +65,8 @@ set(SOURCE_FILES_SHARED_LIB
         include/ir_decode.h)
 
 set(SOURCE_FILES_JNI_SHARED_LIB
-        jni/ir_decode_jni.h
-        jni/ir_decode_jni.c
+        jni/src/ir_decode_jni.h
+        jni/src/ir_decode_jni.c
         include/ir_defs.h
         src/ir_utils.c
         include/ir_utils.h

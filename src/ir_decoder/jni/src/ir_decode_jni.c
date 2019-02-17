@@ -12,8 +12,8 @@ Revision log:
 #include <stdio.h>
 
 #include "ir_decode_jni.h"
-#include "../include/ir_defs.h"
-#include "../include/ir_decode.h"
+#include "../../include/ir_defs.h"
+#include "../../include/ir_decode.h"
 
 // global variable definition
 extern size_t binary_length;
