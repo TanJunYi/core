@@ -120,7 +120,7 @@ INT8 ir_file_open(const UINT8 category, const UINT8 sub_category, const char* fi
 #else
 INT8 ir_file_open(const UINT8 category, const UINT8 sub_category, const char* file_name)
 {
-    return IR_DECODE_SUCCESS;
+    return IR_DECODE_SUCCEEDED;
 }
 #endif
 
