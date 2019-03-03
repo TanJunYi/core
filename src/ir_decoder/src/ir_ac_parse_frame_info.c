@@ -19,7 +19,7 @@ Revision log:
 
 INT8 parse_boot_code(struct tag_head *tag)
 {
-    UINT8 buf[16] = {0};
+    UINT8 buf[16] = { 0 };
     UINT8 *p = NULL;
     UINT16 pos = 0;
     UINT16 cnt = 0, index = 0;
@@ -53,8 +53,8 @@ INT8 parse_boot_code(struct tag_head *tag)
 
 INT8 parse_zero(struct tag_head *tag)
 {
-    UINT8 low[16] = {0};
-    UINT8 high[16] = {0};
+    UINT8 low[16] = { 0 };
+    UINT8 high[16] = { 0 };
     UINT16 index = 0;
     UINT8 *p = NULL;
 
@@ -84,8 +84,8 @@ INT8 parse_zero(struct tag_head *tag)
 
 INT8 parse_one(struct tag_head *tag)
 {
-    UINT8 low[16] = {0};
-    UINT8 high[16] = {0};
+    UINT8 low[16] = { 0 };
+    UINT8 high[16] = { 0 };
     UINT16 index = 0;
     UINT8 *p = NULL;
 
@@ -115,7 +115,7 @@ INT8 parse_one(struct tag_head *tag)
 
 INT8 parse_delay_code_data(UINT8 *pdata)
 {
-    UINT8 buf[16] = {0};
+    UINT8 buf[16] = { 0 };
     UINT8 *p = NULL;
     UINT16 pos = 0;
     UINT16 cnt = 0, index = 0;
@@ -146,7 +146,7 @@ INT8 parse_delay_code_data(UINT8 *pdata)
 INT8 parse_delay_code_pos(UINT8 *buf)
 {
     UINT16 i = 0;
-    UINT8 data[64] = {0}, start[8] = {0};
+    UINT8 data[64] = { 0 }, start[8] = { 0 };
 
     if (NULL == buf)
     {
@@ -171,7 +171,7 @@ INT8 parse_delay_code_pos(UINT8 *buf)
 
 INT8 parse_delay_code(struct tag_head *tag)
 {
-    UINT8 buf[64] = {0};
+    UINT8 buf[64] = { 0 };
     UINT16 i = 0;
     UINT16 preindex = 0;
     preindex = 0;
@@ -228,7 +228,7 @@ INT8 parse_frame_len(struct tag_head *tag, UINT16 len)
 
 INT8 parse_endian(struct tag_head *tag)
 {
-    UINT8 buf[8] = {0};
+    UINT8 buf[8] = { 0 };
 
     if (NULL == tag)
     {
@@ -241,7 +241,7 @@ INT8 parse_endian(struct tag_head *tag)
 
 INT8 parse_lastbit(struct tag_head *tag)
 {
-    UINT8 buf[8] = {0};
+    UINT8 buf[8] = { 0 };
 
     if (NULL == tag)
     {
@@ -254,7 +254,7 @@ INT8 parse_lastbit(struct tag_head *tag)
 
 INT8 parse_repeat_times(struct tag_head *tag)
 {
-    char asc_code[8] = {0};
+    char asc_code[8] = { 0 };
     if (NULL == tag)
     {
         return IR_DECODE_FAILED;
@@ -270,7 +270,7 @@ INT8 parse_repeat_times(struct tag_head *tag)
 INT8 parse_delay_code_tag48_pos(UINT8 *buf)
 {
     UINT16 i = 0;
-    UINT8 data[64] = {0}, start[8] = {0};
+    UINT8 data[64] = { 0 }, start[8] = { 0 };
 
     if (NULL == buf)
     {
@@ -297,7 +297,7 @@ INT8 parse_bit_num(struct tag_head *tag)
 {
     UINT16 i = 0;
     UINT16 preindex = 0;
-    UINT8 buf[64] = {0};
+    UINT8 buf[64] = { 0 };
 
     if (NULL == tag)
     {

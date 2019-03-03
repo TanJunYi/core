@@ -33,7 +33,7 @@ struct tag_head tags[TAG_COUNT_FOR_PROTOCOL];
 UINT8 *ir_hex_code = NULL;
 UINT8 ir_hex_len = 0;
 
-UINT8 byteArray[PROTOCOL_SIZE] = {0};
+UINT8 byteArray[PROTOCOL_SIZE] = { 0 };
 
 size_t binary_length = 0;
 UINT8 *binary_content = NULL;
@@ -182,6 +182,13 @@ UINT16 ir_decode(UINT8 key_code, UINT16* user_data, t_remote_ac_status* ac_statu
         {
             return 0;
         }
+        ir_printf("ac status is not null in decode core : power = %d, mode = %d, "
+                  "temp = %d, wind_dir = %d, wind_speed = %d, "
+                  "keycode = %d, change_wind_direction = %d\n",
+                  ac_status->ac_power, ac_status->ac_mode,
+                  ac_status->ac_temp, ac_status->ac_wind_dir,
+                  ac_status->ac_wind_speed,
+                  key_code, change_wind_direction);
         return ir_ac_control(*ac_status, user_data, key_code, change_wind_direction);
     }
 }

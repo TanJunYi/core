@@ -54,7 +54,7 @@ void noprint(const char *fmt, ...);
 #define ir_memcpy(A, B, C) memcpy(A, B, C)
 #define ir_memset(A, B, C) memset(A, B, C)
 #define ir_strlen(A) strlen(A)
-#if (defined BOARD_PC) && (!defined BOARD_PC_JNI)
+#if ((defined BOARD_PC) || (defined BOARD_PC_JNI)) && (defined DEBUG)
 #define ir_printf printf
 #else
 #define ir_printf noprint

@@ -22,7 +22,7 @@ extern t_ac_protocol *context;
 
 INT8 parse_nmode_data_speed(char *pdata, t_ac_n_mode seq)
 {
-    char buf[16] = {0};
+    char buf[16] = { 0 };
     char *p = pdata;
     UINT16 pos = 0;
     UINT16 cnt = 0, index = 0;
@@ -47,7 +47,7 @@ INT8 parse_nmode_data_speed(char *pdata, t_ac_n_mode seq)
 INT8 parse_nmode_data_temp(char *pdata, t_ac_n_mode seq)
 {
 
-    char buf[16] = {0};
+    char buf[16] = { 0 };
     char *p = pdata;
     UINT16 pos = 0;
     UINT16 cnt = 0, index = 0;
@@ -71,8 +71,8 @@ INT8 parse_nmode_data_temp(char *pdata, t_ac_n_mode seq)
 INT8 parse_nmode_pos(char *buf, t_ac_n_mode index)
 {
     UINT16 i = 0;
-    char data[64] = {0};
-    // char start[8] = {0};
+    char data[64] = { 0 };
+    // char start[8] = { 0 };
     if (ir_strlen(buf) == 1)
     {
         if (buf[0] == 'S' || buf[0] == 's')
@@ -111,7 +111,7 @@ INT8 parse_nmode(struct tag_head *tag, t_ac_n_mode index)
     UINT16 i = 0;
     UINT16 preindex = 0;
 
-    char buf[64] = {0};
+    char buf[64] = { 0 };
 
     if (tag->p_data[0] == 'N' && tag->p_data[1] == 'A')
     {

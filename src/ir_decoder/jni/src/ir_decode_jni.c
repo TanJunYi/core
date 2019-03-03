@@ -54,9 +54,9 @@ JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irOpenBinary
 JNIEXPORT jintArray JNICALL Java_net_irext_decode_sdk_IRDecode_irDecode
           (JNIEnv *env, jobject this_obj, jint key_code, jobject jni_ac_status, jint change_wind_direction)
 {
-    UINT16 user_data[USER_DATA_SIZE];
+    UINT16 user_data[USER_DATA_SIZE] = { 0 };
     int i = 0;
-    jint copy_array[USER_DATA_SIZE] = {0};
+    jint copy_array[USER_DATA_SIZE] = { 0 };
     t_remote_ac_status ac_status;
 
     jclass n_ac_status = (*env)->GetObjectClass(env, jni_ac_status);

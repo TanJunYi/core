@@ -158,12 +158,13 @@ INT8 decode_as_ac(char *file_name)
 
         if (TRUE == op_match && TRUE == need_control)
         {
-            ir_printf("switch AC to power = %d, mode = %d, temp = %d, speed = %d, swing = %d\n",
+            ir_printf("switch AC to power = %d, mode = %d, temp = %d, speed = %d, swing = %d with function code = %d\n",
                       ac_status.ac_power,
                       ac_status.ac_mode,
                       ac_status.ac_temp,
                       ac_status.ac_wind_speed,
-                      ac_status.ac_wind_dir
+                      ac_status.ac_wind_dir,
+                      function_code
             );
 
             ir_decode(function_code, user_data, &ac_status, TRUE);
