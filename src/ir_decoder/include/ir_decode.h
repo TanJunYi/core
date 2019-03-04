@@ -153,6 +153,12 @@ extern INT8 get_supported_wind_direction(UINT8 *supported_wind_direction);
 extern void ir_lib_free_inner_buffer();
 #endif
 
+// this function is preferred being called by JNI only
+UINT16 ir_decode_combo(const UINT8 category, const UINT8 sub_category,
+                       UINT8* binary, UINT16 binary_length,
+                       UINT8 key_code, UINT16* user_data,
+                       t_remote_ac_status* ac_status, BOOL change_wind_direction);
+
 #ifdef __cplusplus
 }
 #endif

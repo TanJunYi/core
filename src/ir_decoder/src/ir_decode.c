@@ -170,7 +170,8 @@ INT8 ir_binary_open(const UINT8 category, const UINT8 sub_category, UINT8* binar
 }
 
 
-UINT16 ir_decode(UINT8 key_code, UINT16* user_data, t_remote_ac_status* ac_status, BOOL change_wind_direction)
+UINT16 ir_decode(UINT8 key_code, UINT16* user_data,
+        t_remote_ac_status* ac_status, BOOL change_wind_direction)
 {
     if (IR_TYPE_COMMANDS == ir_binary_type)
     {
@@ -198,10 +199,12 @@ INT8 ir_close()
 {
     if (IR_TYPE_COMMANDS == ir_binary_type)
     {
+        ir_printf("tv binary close\n");
         return ir_tv_binary_close();
     }
     else
     {
+        ir_printf("ac binary close\n");
         return ir_ac_binary_close();
     }
 }
@@ -648,6 +651,25 @@ static INT8 ir_tv_binary_close()
 }
 //////// TV End ////////
 
+// combo decode for JNI which means call open, decode and then close in one JNI call
+UINT16 ir_decode_combo(const UINT8 category, const UINT8 sub_category,
+                       UINT8* binary, UINT16 binary_length,
+                       UINT8 key_code, UINT16* user_data,
+                       t_remote_ac_status* ac_status, BOOL change_wind_direction)
+{
+    UINT16 decoded_length = 0;
+    if (IR_DECODE_SUCCEEDED ==
+        ir_binary_open(category, sub_category, binary, binary_length))
+    {
+        decoded_length = ir_decode(key_code, user_data, ac_status, change_wind_direction);
+        ir_close();
+        return decoded_length;
+    }
+    else
+    {
+        return 0;
+    }
+}
 
 #if (defined BOARD_PC || defined BOARD_PC_DLL)
 void ir_lib_free_inner_buffer()

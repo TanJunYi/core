@@ -131,6 +131,12 @@ JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetSupportedSwing
 JNIEXPORT jint JNICALL Java_net_irext_decode_sdk_IRDecode_irACGetSupportedWindDirection
   (JNIEnv *, jobject);
 
+
+JNIEXPORT jintArray JNICALL Java_net_irext_decode_sdk_IRDecode_irDecodeCombo
+        (JNIEnv *env, jobject this_obj, jint category_id, jint sub_cate,
+         jbyteArray binaries, jint bin_length,
+         jint key_code, jobject jni_ac_status, jint change_wind_direction);
+
 #ifdef __cplusplus
 }
 #endif
