@@ -47,10 +47,13 @@ keymap_dict_clean_robot = ("POWER", "UP", "DOWN", "LEFT", "RIGHT", "START", "PLU
 keymap_dict_air_cleaner = ("POWER", "UP", "DOWN", "LEFT", "RIGHT", "ION", "PLUS", "MINUS", "AUTO", "SPEED", "MODE",
                            "TIMING", "LIGHT", "FORCE", "SWITCH")
 
+keymap_dict_dyson = ("POWER", "WIND_SPEED_PLUS", "WIND_SPEED_MINUS", "TIMER_MINUS", "TIMER_PLUS", "AUTO",
+                         "TEMP_PLUS", "TEMP_MINUS", "SWING", "DIFFUSION", "FAV", "TIMING", "SLEEP", "COOL", "SWITCH")
+
 keymap_dicts = [keymap_dict_empty,
                 keymap_dict_ac, keymap_dict_tv, keymap_dict_stb, keymap_dict_nw, keymap_dict_iptv, keymap_dict_dvd,
                 keymap_dict_fan, keymap_dict_stereo, keymap_dict_projector, keymap_dict_light, keymap_dict_bstb,
-                keymap_dict_clean_robot, keymap_dict_ac]
+                keymap_dict_clean_robot, keymap_dict_ac, keymap_dict_dyson]
 
 class CKeyMap:
     def __init__(self, name, value):
