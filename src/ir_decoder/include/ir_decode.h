@@ -34,6 +34,168 @@ extern "C"
 #define SUB_CATEGORY_QUATERNARY      0
 #define SUB_CATEGORY_HEXADECIMAL     1
 
+// remote control key definition
+#define KEY_TV_POWER                 0
+#define KEY_TV_MUTE                  1
+#define KEY_TV_UP                    2
+#define KEY_TV_DOWN                  3
+#define KEY_TV_LEFT                  4
+#define KEY_TV_RIGHT                 5
+#define KEY_TV_OK                    6
+#define KEY_TV_VOL_PLUS              7
+#define KEY_TV_VOL_MINUS             8
+#define KEY_TV_BACK                  9
+#define KEY_TV_INPUT                 10
+#define KEY_TV_MENU                  11
+#define KEY_TV_HOME                  12
+#define KEY_TV_SETTINGS              13
+
+#define KEY_AC_POWER                 0
+#define KEY_AC_TEMP_PLUS             1
+#define KEY_AC_TEMP_MINUS            2
+#define KEY_AC_MODE_SWITCH           8
+#define KEY_AC_WIND_SPEED            9
+#define KEY_AC_WIND_DIRECTION        10
+
+#define KEY_STB_POWER                0
+#define KEY_STB_MUTE                 1
+#define KEY_STB_UP                   2
+#define KEY_STB_DOWN                 3
+#define KEY_STB_LEFT                 4
+#define KEY_STB_RIGHT                5
+#define KEY_STB_OK                   6
+#define KEY_STB_VOL_PLUS             7
+#define KEY_STB_VOL_MINUS            8
+#define KEY_STB_BACK                 9
+#define KEY_STB_INPUT                10
+#define KEY_STB_MENU                 11
+#define KEY_STB_PAGE_UP              12
+#define KEY_STB_PAGE_DOWN            13
+
+#define KEY_NETBOX_POWER             0
+#define KEY_NETBOX_UP                1
+#define KEY_NETBOX_DOWN              2
+#define KEY_NETBOX_LEFT              3
+#define KEY_NETBOX_RIGHT             4
+#define KEY_NETBOX_OK                5
+#define KEY_NETBOX_VOL_PLUS          6
+#define KEY_NETBOX_VOL_MINUS         7
+#define KEY_NETBOX_BACK              8
+#define KEY_NETBOX_MENU              9
+#define KEY_NETBOX_HOME              10
+
+#define KEY_IPTV_POWER               0
+#define KEY_IPTV_MUTE                1
+#define KEY_IPTV_UP                  2
+#define KEY_IPTV_DOWN                3
+#define KEY_IPTV_LEFT                4
+#define KEY_IPTV_RIGHT               5
+#define KEY_IPTV_OK                  6
+#define KEY_IPTV_VOL_PLUS            7
+#define KEY_IPTV_VOL_MINUS           8
+#define KEY_IPTV_BACK                9
+#define KEY_IPTV_INPUT               10
+#define KEY_IPTV_MENU                11
+#define KEY_IPTV_PAGE_UP             12
+#define KEY_IPTV_PAGE_DOWN           13
+
+#define KEY_DVD_POWER                0
+#define KEY_DVD_UP                   1
+#define KEY_DVD_DOWN                 2
+#define KEY_DVD_LEFT                 3
+#define KEY_DVD_RIGHT                4
+#define KEY_DVD_OK                   5
+#define KEY_DVD_VOL_PLUS             6
+#define KEY_DVD_VOL_MINUS            7
+#define KEY_DVD_PLAY                 8
+#define KEY_DVD_PAUSE                9
+#define KEY_DVD_EJECT                10
+#define KEY_DVD_REWIND               11
+#define KEY_DVD_FASTFORWARD          12
+#define KEY_DVD_MENU                 13
+
+#define KEY_FAN_POWER                0
+#define KEY_FAN_WIND_PLUS            6
+#define KEY_FAN_WIND_MUNIS           7
+#define KEY_FAN_SWING                8
+#define KEY_FAN_WIND_SPEED           9
+#define KEY_FAN_WIND_TYPE            10
+
+#define KEY_PROJECTOR_POWER          0
+#define KEY_PROJECTOR_UP             1
+#define KEY_PROJECTOR_DOWN           2
+#define KEY_PROJECTOR_LEFT           3
+#define KEY_PROJECTOR_RIGHT          4
+#define KEY_PROJECTOR_OK             5
+#define KEY_PROJECTOR_VOL_PLUS       6
+#define KEY_PROJECTOR_VOL_MINUS      7
+#define KEY_PROJECTOR_ZOOM_OUT       8
+#define KEY_PROJECTOR_MENU           9
+#define KEY_PROJECTOR_ZOOM_IN        10
+#define KEY_PROJECTOR_BACK           11
+
+#define KEY_STEREO_POWER             0
+#define KEY_STEREO_UP                1
+#define KEY_STEREO_DOWN              2
+#define KEY_STEREO_LEFT              3
+#define KEY_STEREO_RIGHT             4
+#define KEY_STEREO_OK                5
+#define KEY_STEREO_VOL_PLUS          6
+#define KEY_STEREO_VOL_MINUS         7
+#define KEY_STEREO_MUTE              8
+#define KEY_STEREO_MENU              9
+
+#define KEY_BULB_POWER               0
+#define KEY_BULB_COLOR_1             1
+#define KEY_BULB_COLOR_2             2
+#define KEY_BULB_COLOR_3             3
+#define KEY_BULB_COLOR_4             4
+#define KEY_BULB_COLOR_0             5
+#define KEY_BULB_BRIGHT_PLUS         6
+#define KEY_BULB_BRIGHT_MINUS        7
+#define KEY_BULB_BRIGHT_POWER_ON     8
+#define KEY_BULB_BRIGHT_RAINBOW      9
+#define KEY_BULB_BRIGHT_POWER_OFF    10
+
+#define KEY_CLEANROBOT_POWER         0
+#define KEY_CLEANROBOT_FOWWARD       1
+#define KEY_CLEANROBOT_BACKWARD      2
+#define KEY_CLEANROBOT_LEFT          3
+#define KEY_CLEANROBOT_RIGHT         4
+#define KEY_CLEANROBOT_START         5
+#define KEY_CLEANROBOT_STOP          6
+#define KEY_CLEANROBOT_AUTO          8
+#define KEY_CLEANROBOT_SPOT          9
+#define KEY_CLEANROBOT_SPEED         10
+#define KEY_CLEANROBOT_TIMER         11
+#define KEY_CLEANROBOT_CHARGE        12
+#define KEY_CLEANROBOT_PRESERVE      13
+
+#define KEY_AIRCLEANER_POWER         0
+#define KEY_AIRCLEANER_ION           5
+#define KEY_AIRCLEANER_AUTO          8
+#define KEY_AIRCLEANER_WIND_SPEED    9
+#define KEY_AIRCLEANER_MODE_SWITCH   10
+#define KEY_AIRCLEANER_TIMER         11
+#define KEY_AIRCLEANER_LIGHT         12
+#define KEY_AIRCLEANER_FORCE         13
+
+#define KEY_DYSON_POWER              0
+#define KEY_DYSON_WIND_SPEED_PLUS    1
+#define KEY_DYSON_WIND_SPEED_MINUS   2
+#define KEY_DYSON_TIMER_MINUS        3
+#define KEY_DYSON_TIMER_PLUS         4
+#define KEY_DYSON_AUTO               5
+#define KEY_DYSON_TEMP_PLUS          6
+#define KEY_DYSON_TEMP_MINUS         7
+#define KEY_DYSON_SWING              8
+#define KEY_DYSON_DIFFUSION          9
+#define KEY_DYSON_FAV                10
+#define KEY_DYSON_TIMER              11
+#define KEY_DYSON_SLEEP              12
+#define KEY_DYSON_COOL               13
+
+
 // exported functions
 /**
  * function     ir_file_open
